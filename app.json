@@ -4,31 +4,38 @@
     "slug": "hulu-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/hulu-logo.jpg",
     "userInterfaceStyle": "light",
     "scheme": "hulu-clone",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/hulu-splash.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kartikreddy18.hulu-clone"
     },
     "android": {
-      "package": "com.kartikreddy18.hulu-clone",
+      "package": "com.kartikreddy18.huluclone",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/hulu-logo.jpg",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/hulu-logo.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c6754aa5-4eaa-4df6-9b83-da07117da58c"
+      }
     }
   }
 }
