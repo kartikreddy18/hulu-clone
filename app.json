@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "hulu-2.0",
-    "slug": "hulu-2.0",
+    "name": "hulu-clone",
+    "slug": "hulu-clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "hulu-clone",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -14,13 +15,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kartikreddy18.hulu-clone"
     },
     "android": {
+      "package": "com.kartikreddy18.hulu-clone",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
