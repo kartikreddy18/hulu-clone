@@ -1,12 +1,12 @@
-import { PureComponent, useRef, useState } from "react";
+import { PureComponent, useRef } from "react";
 import { Box, Text, IconButton, Icon, Button } from "native-base";
 import { Ionicons, FontAwesome5, Entypo } from "@expo/vector-icons";
 import { Video } from "expo-av";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+import { lockAsync, OrientationLock } from "expo-screen-orientation";
 
 export const VideoPlayerComponent = ({ poster }) => {
   const video = useRef(null);
-  const [status, setStatus] = useState({});
   return (
     <Video
       ref={video}
@@ -17,9 +17,25 @@ export const VideoPlayerComponent = ({ poster }) => {
       useNativeControls
       resizeMode="contain"
       isLooping
-      onPlaybackStatusUpdate={(status) => setStatus(() => status)}
       posterSource={{
         uri: poster,
+      }}
+      onFullscreenUpdate={({ fullscreenUpdate }) => {
+        // switch (fullscreenUpdate) {
+        //   case 1:
+        //     lockAsync(OrientationLock.LANDSCAPE);
+        //     break;
+        //   case 2:
+        //     unlockAsync();
+        //     break;
+        // }
+        if (Dimensions.get("window").height > Dimensions.get("window").width) {
+          //Device is in portrait mode, rotate to landscape mode.
+          lockAsync(OrientationLock.LANDSCAPE);
+        } else {
+          //Device is in landscape mode, rotate to portrait mode.
+          lockAsync(OrientationLock.PORTRAIT);
+        }
       }}
     />
   );
@@ -76,9 +92,6 @@ export default class Details extends PureComponent {
           >
             <Text color="white" fontWeight="semibold" fontSize={"lg"}>
               {title}
-            </Text>
-            <Text color="white" fontWeight="semibold" fontSize={"lg"}>
-              {id}
             </Text>
           </Box>
           <Text color="primary.50" py={2}>
